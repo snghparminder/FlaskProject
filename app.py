@@ -1,3 +1,4 @@
+import flask
 from flask import Flask, render_template, send_from_directory
 
 app = Flask(__name__, template_folder='templates')  # Ensure it points to the correct folder
