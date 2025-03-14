@@ -1,0 +1,61 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopNow</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+        function updateImage() {
+            var category = document.getElementById("category").value;
+            var productImage = document.getElementById("productImage");
+            
+            var images = {
+                'mens_jeans': "{{ url_for('static', filename='images/mens_jeans.jpg') }}",
+                'mens_shirt': "{{ url_for('static', filename='images/mens_shirt.jpg') }}",
+                'womens_dress': "{{ url_for('static', filename='images/womens_dress.jpeg') }}",
+                'womens_top': "{{ url_for('static', filename='images/womens_top.jpg') }}",
+                'kids_tshirt': "{{ url_for('static', filename='images/kids_tshirt.jpeg') }}",
+                'kids_shorts': "{{ url_for('static', filename='images/kids_shorts.jpeg') }}"
+            };
+            
+            productImage.src = images[category];
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>ShopNow</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/product">Products</a></li>
+                <li><a href="#cart">Cart</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section>
+            <h2>Select a Product</h2>
+            <select id="category" onchange="updateImage()">
+                <option value="mens_jeans">Men's Jeans</option>
+                <option value="mens_shirt">Men's Shirt</option>
+                <option value="womens_dress">Women's Dress</option>
+                <option value="womens_top">Women's Top</option>
+                <option value="kids_tshirt">Kids' T-Shirt</option>
+                <option value="kids_shorts">Kids' Shorts</option>
+            </select>
+            <br>
+            <img id="productImage" src="{{ url_for('static', filename='images/mens_jeans.jpg') }}" alt="Product Image" width="200">
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 ShopNow. All rights reserved.</p>
+    </footer>
+</body>
+</html>
