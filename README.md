@@ -1,5 +1,7 @@
+app.py
+.gitignore
+index.html
+template folder--index.html,product.html
+static template--pics to be displayed on the web application
 
-flask
-test if pull changes are successfull from git hub to local git 
-test practise push request
-test
+
